@@ -4,8 +4,7 @@
   "description": "",
   "main": "''",
   "scripts": {
-    "build": "webpack --progress --profile --colors",
-    "dev": "webpack-dev-server --progress --profile --colors --hot"
+    "build": "node_modules/webpack/bin/webpack.js"
   },
   "author": "Ma Lucheng",
   "license": "MIT",
