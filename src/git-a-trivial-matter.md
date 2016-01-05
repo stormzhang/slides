@@ -41,6 +41,13 @@ author: 马陆骋&lt;malucheng@boohee.com&gt;
     git push origin :no_need_more # 删除远程分支
     git remote prune origin # 清除本地残留的无用分支
 
+### 创建孤儿分支
+
+    git checkout --orphan newbranch
+    git rm -rf .
+    echo "hello" > README.md
+    git commit -m 'Initial commit'
+
 ## 分支的合并
 
 假设 dev 分支是从 master 分支 checkout 出来的，那么合并的方式有：

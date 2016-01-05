@@ -52,7 +52,7 @@ single page application
 -   应用型而非展示型
 -   在大型应用中局部嵌入
 
-### 开发体验
+## 开发体验
 
 -   无需关心后台业务逻辑 (只需要和 api 进行交互)
 -   统一语言 **javascript**
@@ -68,7 +68,7 @@ single page application
 
 -   这里的 javascript 是一门真正的编程语言
 -   与操作 dom 时的脚本语言javascript不同
--   面向对象的 javascript (Object Orient)
+-   是面向对象的 javascript (Object Orient)
 
 ### 编程语言 - coffeescript
 
@@ -78,7 +78,7 @@ single page application
 ![](../assets/images/backbone-and-spa/creator.png)
 
 
-### 什么是 coffeescript
+## 什么是 coffeescript
 
 CoffeeScript is a little language that compiles into JavaScript
 
@@ -104,7 +104,7 @@ cube   = (x) -> square(x) * x
 
 ### 条件分支
 
-``` {.coffee}
+```coffee
 grade = (student) ->
   if student.excellentWork
     "A+"
@@ -121,7 +121,7 @@ eldest = if 24 > 21 then "Liz" else "Ike"
 
 ### 注释
 
-``` {.coffee}
+```coffee
 # this is a comment
 ```
 
@@ -130,7 +130,7 @@ eldest = if 24 > 21 then "Liz" else "Ike"
 
 ### loops
 
-``` {.coffee}
+```coffee
 for animal in animals
   console.log animal
 ```
@@ -151,7 +151,7 @@ for animal in animals
 
 ### yo
 
-``` {.bash}
+```bash
 npm install -g yo
 ```
 
@@ -160,7 +160,7 @@ npm install -g yo
 
 ### grunt
 
-``` {.bash}
+```bash
 npm install -g grunt-cli
 ```
 
@@ -169,21 +169,21 @@ npm install -g grunt-cli
 
 ### bower
 
-``` {.bash}
+```bash
 npm install -g bower
 ```
 
 ![](../assets/images/backbone-and-spa/bower_cli.png)
 
 
-### yoeman
+## yoeman
 
 THE WEB'S SCAFFOLDING TOOL FOR MODERN WEBAPPS
 
 ![](../assets/images/backbone-and-spa/yeoman.png)
 
 
-### grunt
+## grunt
 
 The JavaScript Task Runner
 
@@ -192,13 +192,13 @@ build tool like rake for ruby and ant(maven) for java
 ![](../assets/images/backbone-and-spa/grunt.png)
 
 
-### bower
+## bower
 
 A package manager for the web
 
 ![](../assets/images/backbone-and-spa/bower.png)
 
-backbone的组成
+## backbone的组成
 
 ![](../assets/images/backbone-and-spa/backbone.png)
 
@@ -253,7 +253,7 @@ backbone 没有专门的 controller, controller 的职责由 view 承担
 所以如果一个对象的某个默认值是一个 object. 那么需要把 default
 作为一个函数来定义
 
-``` {.coffee}
+```coffee
   defaults: ->
     page_id: ""
     position: 0
@@ -282,3 +282,5 @@ view 需要被手动管理不然会出现多重事件绑定
 ![](../assets/images/backbone-and-spa/wshop_front.png)
 
 ## Thanks
+
+Question?

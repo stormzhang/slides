@@ -79,6 +79,13 @@ author: 马陆骋&lt;malucheng@boohee.com&gt;
     git checkout -t origin/feature/login # 自动切换并跟踪远程分支
     git push origin :no_need_more # 删除远程分支
     git remote prune origin # 清除本地残留的无用分支
+</script></section><section data-markdown><script type="text/template">
+### 创建孤儿分支
+
+    git checkout --orphan newbranch
+    git rm -rf .
+    echo "hello" > README.md
+    git commit -m 'Initial commit'
 </script></section></section><section ><section data-markdown><script type="text/template">
 ## 分支的合并
 
