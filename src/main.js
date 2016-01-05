@@ -3,11 +3,49 @@
 var path = require('path');
 var fm = require('front-matter');
 var marked = require('marked');
-var cheerio = require('cheerio');
-//
-var content = require("./demo.md");
-// var frontMeta = fm(content);
-console.log('---------------');
-console.log(content);
+var md = require('reveal.js/plugin/markdown/markdown');
+var Mustache = require('mustache');
+var fs = require('fs');
 
-console.log(marked(content));
+function split_content(content){
+  var ret = [];
+  var lines = content.split('\n');
+  lines.forEach(function (line, index, array){
+    if(line.indexOf("###") >= 0){
+      line = "----\n\n" + line;
+    }else{
+      if(line.indexOf("##") >= 0){
+        line = "---\n\n" + line;
+      }
+    }
+    ret.push(line);
+  });
+  return ret.join("\n");
+}
+
+
+module.exports = function render(locals, callback) {
+  var opts = {
+      printMode: false,
+      separator: '^(\r\n?|\n)---(\r\n?|\n)$',
+      verticalSeparator: '^(\r\n?|\n)----(\r\n?|\n)$',
+      revealOptions: {}
+  };
+
+  var source_file = "./" + locals.path.split("/").join("") + ".md";
+  var content = require(source_file);
+
+  var content_with_split = split_content(content);
+
+  var slides = md.slidify(content_with_split, opts);
+
+  var view = {
+    title: "title",
+    prefix: "../revealjs/",
+    slides: slides
+  };
+
+  var tpl = require("./index.tpl");
+  var output = Mustache.render(tpl, view);
+  callback(null, '<!DOCTYPE html>' + output);
+}

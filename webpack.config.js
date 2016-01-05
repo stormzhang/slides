@@ -1,20 +1,30 @@
 var webpack = require('webpack');
 var path = require('path');
+var StaticSiteGeneratorPlugin = require('static-site-generator-webpack-plugin');
+
+var paths = [
+  '/backbone-and-spa/'
+];
 
 module.exports = {
-  entry: [
-    './src/main.js' // Your appʼs entry point
-  ],
+  entry: {
+    'main': './src/main.js'
+  },
+  debug: true,
   devtool: 'source-map',
   output: {
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    libraryTarget: 'umd'
   },
+  plugins: [
+    new StaticSiteGeneratorPlugin('main', paths, null)
+  ],
   module: {
     loaders: [
       {
         test: /\.js$/,
         exclude: /(node_modules|bower_components)/,
-        loaders: ['react-hot', 'babel'],
+        loader: "babel-loader"
       },
       {
         test: /\.json$/,
@@ -22,6 +32,10 @@ module.exports = {
       },
       {
         test: /\.md$/,
+        loader: "raw-loader"
+      },
+      {
+        test: /\.tpl$/,
         loader: "raw-loader"
       }
     ]
