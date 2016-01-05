@@ -1,10 +1,7 @@
 var webpack = require('webpack');
 var path = require('path');
 var StaticSiteGeneratorPlugin = require('static-site-generator-webpack-plugin');
-
-var paths = [
-  '/backbone-and-spa/'
-];
+var data = require('./src/data.js');
 
 module.exports = {
   entry: {
@@ -17,7 +14,7 @@ module.exports = {
     libraryTarget: 'umd'
   },
   plugins: [
-    new StaticSiteGeneratorPlugin('main', paths, null)
+    new StaticSiteGeneratorPlugin('main', data.routes, data)
   ],
   module: {
     loaders: [

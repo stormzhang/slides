@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>title</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="../revealjs/css/reveal.css">
+		<link rel="stylesheet" href="../revealjs/css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="../revealjs/lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../revealjs/css/print/pdf.css' : '../revealjs/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+			<div class="slides"><section  data-markdown><script type="text/template"># 那些年我们用过的 Rake
+
+author: 马陆骋&lt;malucheng@boohee.com&gt;
+</script></section><section  data-markdown><script type="text/template">
+## 目录
+
+-   什么是 Rake
+-   Rake 的常见用途
+-   无处不在的 Rake
+-   一些简单的例子
+-   编写 Rake Task 的技巧
+-   Rake in Action
+-   小贴士
+</script></section><section  data-markdown><script type="text/template">
+## 什么是 Rake
+
+Rake 是一个 ruby 版的 make。
+
+make 是一个 c 语言的构建工具。
+
+所以说 Rake 是一个 ruby 编写的构建工具。
+
+-   Rake 是一个 Ruby 的内部 DSL 哦\~
+-   这意味着在 Rake 中可以编写任意的 Ruby 代码
+</script></section><section  data-markdown><script type="text/template">
+## Rake 的常见用途
+
+-   自动化脚本
+-   文件处理
+-   程序入口
+</script></section><section  data-markdown><script type="text/template">
+## 无处不在的 Rake
+
+-   rails \[route, db, assets, custom task\]
+-   octopress \[new post, build, deploy\]
+-   almost all the ruby projects can be tested by rake test
+</script></section><section ><section data-markdown><script type="text/template">
+## 一些简单的例子
+
+![栗子](../assets/images/rake-is-the-apple-of-my-eye/example.jpg)
+</script></section><section data-markdown><script type="text/template">
+### 清理临时文件
+
+```ruby
+desc 'Clean emacs backup files *~'
+task :clean_emacs_backup do
+  puts "Clean emacs backup files *~"
+  files = Dir['*~']
+  rm(files)
+end
+```
+</script></section><section data-markdown><script type="text/template">
+### 启动一个 web server
+
+```ruby
+desc 'start simple http server'
+task :http_server do
+  require 'webrick'
+  WEBrick::HTTPServer.new(:Port=>8989,:DocumentRoot=>".").start
+end
+
+```
+</script></section><section data-markdown><script type="text/template">
+### 生成一个 licence 文件
+```ruby
+require 'date'
+require 'erb'
+namespace :licence do
+  desc 'Generate Licences'
+  task :mit do
+    name = "Ma Lucheng"
+    year = Date.today.year
+    file = File.join(File.dirname(__FILE__), 'templates', 'mit.erb')
+    erb = File.open(file).read
+    content = ERB.new(erb).result(binding)
+    File.open('LICENSE.md', 'w') { |file| file.write(content) }
+  end
+end
+```
+</script></section><section data-markdown><script type="text/template">
+### 根据 org 文件生成 slide
+
+略...
+</script></section><section data-markdown><script type="text/template">
+### 转化 API 文档
+
+```ruby
+file 'bingo/course_blueprint.html' => 'bingo/course_blueprint.md' do
+  `aglio -i bingo/course_blueprint.md -o bingo/v2course_blueprint.html`
+end
+```
+</script></section></section><section ><section data-markdown><script type="text/template">
+## 编写 Rake Task 的技巧
+</script></section><section data-markdown><script type="text/template">
+### 小步前进
+
+一次只定义一个任务，然后把它们串联起来
+</script></section><section data-markdown><script type="text/template">
+### 使用命名空间
+
+更好的组织形式
+</script></section><section data-markdown><script type="text/template">
+### 记录日志
+
+了解程序的运行过程
+</script></section><section data-markdown><script type="text/template">
+### 委托复杂业务
+
+让 Rake 做好自己的事情
+</script></section></section><section ><section data-markdown><script type="text/template">
+## Rake in Action
+
+simple blog generator
+
+a good demo
+</script></section><section data-markdown><script type="text/template">
+### 主要步骤
+
+- 查找定义源文件
+- 动态定义 file task
+- 执行动作
+- 并发处理
+- 任务依赖
+- refactor
+- 提取 model 和 view
+</script></section></section><section ><section data-markdown><script type="text/template">
+## 小贴士
+</script></section><section data-markdown><script type="text/template">
+### 全局的 Rake Task
+
+存放在 \$HOME/.rake/ 文件夹下
+
+使用 `rake -g xxx` 调用
+</script></section><section data-markdown><script type="text/template">
+### Rake Task 的 desc
+
+- 不写的话 `rake -T` 不会显示
+
+- 不过用 `rake -T -A` 就能显示了
+</script></section><section data-markdown><script type="text/template">
+### 传参数给 Rake Task
+
+错误的用法:
+
+    bin/rake report:build_report_with_date "2015-09-07"
+
+正确地用法:
+
+    bin/rake report:build_report_with_date["2015-09-07"]
+</script></section></section><section  data-markdown><script type="text/template">
+## Thanks
+
+Questions?
+</script></section></div>
+		</div>
+
+		<script src="../revealjs/lib/js/head.min.js"></script>
+		<script src="../revealjs/js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: '../revealjs/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '../revealjs/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../revealjs/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../revealjs/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '../revealjs/plugin/zoom-js/zoom.js', async: true },
+					{ src: '../revealjs/plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

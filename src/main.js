@@ -32,20 +32,25 @@ module.exports = function render(locals, callback) {
       revealOptions: {}
   };
 
-  var source_file = "./" + locals.path.split("/").join("") + ".md";
-  var content = require(source_file);
-
-  var content_with_split = split_content(content);
-
-  var slides = md.slidify(content_with_split, opts);
-
-  var view = {
-    title: "title",
-    prefix: "../revealjs/",
-    slides: slides
-  };
-
-  var tpl = require("./index.tpl");
-  var output = Mustache.render(tpl, view);
-  callback(null, '<!DOCTYPE html>' + output);
+  if(locals.path == "/"){
+    var tpl = require("./list.tpl");
+    console.log(locals.data);
+    var view = {
+      links: locals.routes,
+    };
+    var output = Mustache.render(tpl, view);
+  }else{
+    var source_file = "./" + locals.path.split("/").join("") + ".md";
+    var content = require(source_file);
+    var content_with_split = split_content(content);
+    var slides = md.slidify(content_with_split, opts);
+    var view = {
+      title: "title",
+      prefix: "../revealjs/",
+      slides: slides
+    };
+    var tpl = require("./index.tpl");
+    var output = Mustache.render(tpl, view);
+  }
+  callback(null, output);
 }
