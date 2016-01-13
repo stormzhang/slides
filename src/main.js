@@ -45,7 +45,7 @@ module.exports = function render(locals, callback) {
     var content_with_split = split_content(content);
     var slides = md.slidify(content_with_split, opts);
     var view = {
-      title: "title",
+      title: source_file,
       prefix: "../revealjs/",
       slides: slides
     };

@@ -10,7 +10,7 @@ author: 马陆骋&lt;malucheng@boohee.com&gt;
 -   git 时空穿越
 -   git 差异对比
 -   git 解决冲突
--   git 黑暗料理
+-   git 黑暗骑士
 -   git 好的提交
 -   git 拾遗
 
@@ -80,7 +80,7 @@ author: 马陆骋&lt;malucheng@boohee.com&gt;
 
 不适合需要 code review 的情况
 
-### sqush 合并
+### squash 合并
 
     git checkout master
     git merge dev --squash
@@ -222,14 +222,27 @@ author: 马陆骋&lt;malucheng@boohee.com&gt;
 
 ### 轻装上阵
 
-☁ /tmp git clone git@github.com:apiaryio/api-blueprint.git Cloning into
-'api-blueprint'... remote: Counting objects: 1497, done. ^CKilled^ by
-signal 2.4% (659/1497), 1.20 MiB | 29.00 KiB/s fatal: The remote end
-hung up unexpectedly
+    ☁ /tmp git clone git@github.com:apiaryio/api-blueprint.git Cloning into
+    'api-blueprint'... remote: Counting objects: 1497, done. ^CKilled^ by
+    signal 2.4% (659/1497), 1.20 MiB | 29.00 KiB/s fatal: The remote end
+    hung up unexpectedly
 
-☁ /tmp git clone --depth=1 git@github.com:apiaryio/api-blueprint.git
-Cloning into 'api-blueprint'... remote: Counting objects: 32, done.
-remote: Compressing objects: 100% (31/31), done.
+    ☁ /tmp git clone --depth=1 git@github.com:apiaryio/api-blueprint.git
+    Cloning into 'api-blueprint'... remote: Counting objects: 32, done.
+    remote: Compressing objects: 100% (31/31), done.
+
+如果事后先要拉取完整的历史记录
+
+    git pull --unshallow
+
+### 乾坤大挪移
+
+使用情景: 在仓库A中, 我进行了一连串的 scaffold generation.
+然后发现进错项目了, 应该在仓库B中操作的.
+
+    ☁ /repo_a git diff > patch.txt
+    ☁ /repo_a mv patch.txt ../repo_b
+    ☁ /repo_b git apply patch.txt
 
 ## how to make good commit
 
@@ -296,12 +309,11 @@ remote: Compressing objects: 100% (31/31), done.
 
 <https://github.com/aseaday/git-style-guide>
 
-## worktree
+### worktree
 
 分别管理 github-pages 和工作分支
 
     git worktree add -b gh-pages ../project-gh-pages origin/gh-pages
-
 
 ## Thanks
 
