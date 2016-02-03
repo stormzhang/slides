@@ -142,7 +142,7 @@ https://help.github.com/articles/using-pull-requests/
     | static page | <---+ | or                | <-----+  Server  |
     |             |       | self host server  |       |          |
     |             |       |                   |       |          |
-    +-------------+       +-------------------+       +----------+    
+    +-------------+       +-------------------+       +----------+
 
 ### 客户端
 
@@ -369,6 +369,8 @@ https://www.douban.com/doulist/1318999/
     gem install travis
     travis login --auto
 
+https://github.com/dwyl/learn-travis
+
 ### 加密私密信息
 
     travis encrypt GITHUB_TOKEN=xxxxxxxxxxx --add
@@ -451,7 +453,7 @@ webpack 配合 react 的全新思路
 
 Semantic Versioning
 
-x.y.z  
+x.y.z
 
 e.g rails 4.2.5
 
