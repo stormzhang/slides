@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>.&#x2F;build-minimal-emacs-clone-with-rust.md</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="../revealjs/css/reveal.css">
+		<link rel="stylesheet" href="../revealjs/css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="../revealjs/lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../revealjs/css/print/pdf.css' : '../revealjs/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+			<div class="slides"><section  data-markdown><script type="text/template"># 使用 Rust 编写命令行编辑器
+author: 马陆骋&lt;malucheng@boohee.com&gt;
+</script></section><section  data-markdown><script type="text/template">
+## 目录
+
+目标：
+- 扩展视野
+- 尝试不同的语言
+- 新的编程方式
+- 现代化的思想
+</script></section><section  data-markdown><script type="text/template">
+## 什么是 Rust 语言
+
+System programming language
+
+mozilla
+
+browser
+</script></section><section  data-markdown><script type="text/template">
+## Rust 的特性
+
+无运行时开销
+
+无内存泄露的隐患（编译器级别的防范）
+
+底层系统编程
+</script></section><section  data-markdown><script type="text/template">
+## Java Ruby and Rust
+
+- 面向对象（编程范式）
+- 不变性（变量绑定）
+- 模式匹配
+- 内存管理
+- 异常处理
+</script></section><section  data-markdown><script type="text/template">
+## 命令行应用
+
+GUI and CLI
+
+CLI 和 shell 的区别
+</script></section><section  data-markdown><script type="text/template">
+## 使用的库
+</script></section><section  data-markdown><script type="text/template">
+## Emacs 的简单介绍
+
+- 界面
+- 模式
+- 数据结构
+</script></section><section  data-markdown><script type="text/template">
+## 编辑器是什么
+</script></section><section  data-markdown><script type="text/template">
+## 需要的轮子
+</script></section></div>
+		</div>
+
+		<script src="../revealjs/lib/js/head.min.js"></script>
+		<script src="../revealjs/js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: '../revealjs/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '../revealjs/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../revealjs/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../revealjs/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '../revealjs/plugin/zoom-js/zoom.js', async: true },
+					{ src: '../revealjs/plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
