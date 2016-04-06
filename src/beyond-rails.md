@@ -332,12 +332,12 @@ server save event and then view updated.
 
 ```json
 {
-  command: "item_created",
+  event: "item_created",
   content: "buy milk",
   created_at: '2016-04-01 12:12:12'
 },
 {
-  command: "item_finished",
+  event: "item_finished",
   id: 1,
   created_at: '2016-04-01 12:22:12'
 },
@@ -385,11 +385,3 @@ https://github.com/LukasGasior1/event-sourced-dice-game
 ![](../assets/images/beyond-rails/event-sourced-dice-game.png)
 
 ## Thanks and Question
-
-更深入的技术细节与代码请看下回分解
-
-剧透:
-
-- scala (playframework)
-- akka (actor)
-- reactive
