@@ -1,0 +1,44 @@
+#blipDetails {
+  display: block;
+  width: 500px;
+  position: absolute;
+  right: 30px;
+  top: 70px;
+  padding: 0 20px;
+  background: white;
+  border: 1px solid #CCC;
+  border-radius: 6px;
+  box-shadow: #BBB 0 0 2px;
+}
+/* SVG STYLES */
+path {
+  stroke: #CCC;
+  stroke-width: 1px;
+  fill: none;
+}
+text.label {
+  cursor: pointer;
+  font: 9px arial,helvetica,clean,sans-serif;
+}
+g.blip-container {
+  cursor: pointer;
+}
+g.blip-container use {
+  fill: #11A5E3;
+}
+g.active use {
+  fill: red;
+}
+g.active text {
+  opacity: 1 !important;
+  display: block !important;
+}
+/* shows text only when zoomed */
+text.blip {
+  text-shadow: #fff 1px 1px 0;
+  font-weight: 100;
+}
+path.largest-arc {
+  fill: red;
+  fill-opacity: 0;
+}
