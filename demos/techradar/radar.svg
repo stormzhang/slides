@@ -1,0 +1,47 @@
+<svg width="595" height="595" xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <g transform="scale(0.74,0.74)">
+  <g id="radar">
+
+    <g id="techniques" class="quadrant">
+      <g>
+        <path d="M 400 0 a 400 400 0 0 0 -400 400 l 400 0 z" id="techniques-arc" class="largest-arc" />
+        <path d="M 400 45 a 355 355 0 0 0 -355 355 l 355 0 z" />
+        <path d="M 400 50 a 350 350 0 0 0 -350 350 l 350 0 z" />
+        <path d="M 400 125 a 275 275 0 0 0 -275 275 l 275 0 z" />
+        <path d="M 400 250 a 150 150 0 0 0 -150 150 l 150 0 z" />
+      </g>
+    </g>
+
+    <g id="tools" class="quadrant">
+      <g transform="rotate(90 400 400)">
+        <path d="M 400 0 a 400 400 0 0 0 -400 400 l 400 0 z" id="tools-arc" class="largest-arc" />
+        <path d="M 400 45 a 355 355 0 0 0 -355 355 l 355 0 z" />
+        <path d="M 400 50 a 350 350 0 0 0 -350 350 l 350 0 z" />
+        <path d="M 400 125 a 275 275 0 0 0 -275 275 l 275 0 z" />
+        <path d="M 400 250 a 150 150 0 0 0 -150 150 l 150 0 z" />
+      </g>
+    </g>
+
+    <g id="languages" class="quadrant">
+      <g transform="rotate(180 400 400)">
+        <path d="M 400 0 a 400 400 0 0 0 -400 400 l 400 0 z" id="languages-arc" class="largest-arc" />
+        <path d="M 400 45 a 355 355 0 0 0 -355 355 l 355 0 z" />
+        <path d="M 400 50 a 350 350 0 0 0 -350 350 l 350 0 z" />
+        <path d="M 400 125 a 275 275 0 0 0 -275 275 l 275 0 z" />
+        <path d="M 400 250 a 150 150 0 0 0 -150 150 l 150 0 z" />
+      </g>
+    </g>
+
+    <g id="platforms" class="quadrant">
+      <g transform="rotate(270 400 400)">
+        <path d="M 400 0 a 400 400 0 0 0 -400 400 l 400 0 z" id="platforms-arc" class="largest-arc" />
+        <path d="M 400 45 a 355 355 0 0 0 -355 355 l 355 0 z" />
+        <path d="M 400 50 a 350 350 0 0 0 -350 350 l 350 0 z" />
+        <path d="M 400 125 a 275 275 0 0 0 -275 275 l 275 0 z" />
+        <path d="M 400 250 a 150 150 0 0 0 -150 150 l 150 0 z" />
+      </g>
+    </g>
+
+  </g>
+  </g>
+</svg>
