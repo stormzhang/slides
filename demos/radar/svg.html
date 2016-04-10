@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>d3</title>
+    <style>
+        div.bar {
+            display: inline-block;
+            width: 20px;
+            height: 75px;
+            background-color: teal;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+
+    </div>
+    <script src="./d3.v3.min.js" charset="utf-8"></script>
+    <script>
+        var w = 500;
+        var h = 50;
+        // var dataset = [5,10,15,20,25];
+        var dataset = [];
+        for (var i = 0; i < 25; i++){
+          var newNumber = Math.random() * 30;
+          dataset.push(newNumber);
+        }
+
+        var svg = d3.select("body").append("svg");
+        svg.attr("width", w).attr("height", h);
+
+        var circles = svg.selectAll("circle").data(dataset).enter().append("circle");
+        circles.attr("cx", function(d, i){
+          return (i * 50) + 25;
+        }).attr("cy", h/2).attr("r", function(d){ return d})
+        .attr("fill", "yellow").attr("stroke", "orange").attr("stroke-width", function(d){
+          return d/2;
+        });
+    </script>
+</body>
+
+</html>

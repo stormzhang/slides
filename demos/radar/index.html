@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>d3</title>
+    <style>
+        div.bar {
+            display: inline-block;
+            width: 20px;
+            height: 75px;
+            background-color: teal;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+
+    </div>
+    <script src="./d3.v3.min.js" charset="utf-8"></script>
+    <script>
+        // var dataset = [5,10,15,20,25];
+        var dataset = [];
+        for (var i = 0; i < 25; i++){
+          var newNumber = Math.random() * 30;
+          dataset.push(newNumber);
+        }
+
+        d3.select("body").selectAll("div")
+            .data(dataset).enter().append("div")
+            .attr("class", "bar").style("height", function(d){return d * 5 + "px"});
+    </script>
+</body>
+
+</html>
