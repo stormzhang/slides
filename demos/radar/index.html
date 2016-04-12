@@ -19,16 +19,37 @@
     </div>
     <script src="./d3.v3.min.js" charset="utf-8"></script>
     <script>
+        var w = 500;
+        var h = 100;
+        var barPadding = 1;
         // var dataset = [5,10,15,20,25];
         var dataset = [];
         for (var i = 0; i < 25; i++){
           var newNumber = Math.random() * 30;
-          dataset.push(newNumber);
+          dataset.push(Math.floor(newNumber));
         }
 
-        d3.select("body").selectAll("div")
-            .data(dataset).enter().append("div")
-            .attr("class", "bar").style("height", function(d){return d * 5 + "px"});
+        var svg = d3.select("body").append("svg")
+            .attr("width", w).attr("height", h);
+
+        svg.selectAll("rect").data(dataset).enter()
+          .append("rect").attr("x", function(d, i){ return i * (w /dataset.length)})
+          .attr("y", function(d){
+            return h - d
+          })
+          .attr("width", w/ dataset.length - barPadding)
+          .attr("height", function(d){
+            return d
+          })
+          .attr("fill", function(d){
+            return "rgb(0,0,"+(d * 10)+")"
+          });
+
+        svg.selectAll("text").data(dataset).enter().append('text').text(function(d){
+          return d;
+        }).attr("x", function(d,i){return i * (w / dataset.length)}).attr("y", function(d){
+          return h - d + 5;
+        });
     </script>
 </body>
 

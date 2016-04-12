@@ -6,14 +6,12 @@ http://insights.thoughtworkers.org/build-your-own-technology-radar/
 
 ## 什么是技术雷达
 
-http://insights.thoughtworkers.org/build-your-own-technology-radar/
-
 > 一份评估既有技术与新生技术的风险和利益的动态文档
 
 ## 内容
 
 - 象限区分类型
-- 坐标区分程度
+- 坐标区分状态
 
 ## 象限
 
@@ -33,7 +31,6 @@ http://insights.thoughtworkers.org/build-your-own-technology-radar/
 
 [2016 年最新的 ThoughtWorks 技术雷达](http://insights.thoughtworkers.org/wp-content/uploads/2015/12/technology-radar-apr-2016-cn.pdf)
 
-[ThoughtWorks读书雷达](http://insights.thoughtworkers.org/wp-content/uploads/2015/12/thoughtworks%E8%AF%BB%E4%B9%A6%E9%9B%B7%E8%BE%BE%EF%BC%882016%EF%BC%89.pdf)
 
 ## 如何做?
 
@@ -51,3 +48,12 @@ D3.js
 4. 添加样式
 5. 动态读取
 6. 持续集成
+
+## 不同的雷达
+
+[ThoughtWorks读书雷达](http://insights.thoughtworkers.org/wp-content/uploads/2015/12/thoughtworks%E8%AF%BB%E4%B9%A6%E9%9B%B7%E8%BE%BE%EF%BC%882016%EF%BC%89.pdf)
+
+- 自己的雷达
+- 公司的雷达
+
+## Thanks & Question
