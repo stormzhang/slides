@@ -5,7 +5,8 @@
   "main": "''",
   "scripts": {
     "build": "node_modules/webpack/bin/webpack.js --progress --colors --watch",
-    "preview": "node_modules/http-server/bin/http-server -a localhost -p 8000"
+    "preview": "node_modules/http-server/bin/http-server -a localhost -p 8000",
+    "clean": "node clean.js"
   },
   "author": "Ma Lucheng",
   "license": "MIT",
@@ -31,5 +32,8 @@
     "webpack": "1.12.9",
     "webpack-dev-server": "1.14.0",
     "http-server": "^0.8.5"
+  },
+  "dependencies": {
+    "rimraf": "^2.5.2"
   }
 }
