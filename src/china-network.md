@@ -9,6 +9,16 @@ stormzhang，热爱分享，拥抱开源的一位 AndroidDeveloper（段子手�
 - 现象
 - 运营商的罪状
 - 什么是RESTFul
+- 如何解决RESTFul API的限制
+- 什么是运营商劫持？
+- 运营商劫持的手段
+- 如何解决运营商劫持？
+- Http DNS
+- Http DNS的优势
+- 实践中遇到的困难
+- 取得的成效
+- 未来的展望
+- Q&A
 
 ## 背景
 
