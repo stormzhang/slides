@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>.&#x2F;build-your-own-technology-radar.md</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="../revealjs/css/reveal.css">
+		<link rel="stylesheet" href="../revealjs/css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="../revealjs/lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../revealjs/css/print/pdf.css' : '../revealjs/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+			<div class="slides"><section  data-markdown><script type="text/template"># 打造你自己的技术雷达
+
+author: 马陆骋 <malucheng@boohee.com>
+
+http://insights.thoughtworkers.org/build-your-own-technology-radar/
+</script></section><section  data-markdown><script type="text/template">
+## 什么是技术雷达
+
+> 一份评估既有技术与新生技术的风险和利益的动态文档
+</script></section><section  data-markdown><script type="text/template">
+## 内容
+
+- 象限区分类型
+- 坐标区分状态
+</script></section><section  data-markdown><script type="text/template">
+## 象限
+
+- 技术
+- 工具
+- 平台
+- 语言和框架
+</script></section><section  data-markdown><script type="text/template">
+## 坐标
+
+- 暂缓
+- 评估
+- 试验
+- 采用
+</script></section><section  data-markdown><script type="text/template">
+## 例子
+
+[2016 年最新的 ThoughtWorks 技术雷达](http://insights.thoughtworkers.org/wp-content/uploads/2015/12/technology-radar-apr-2016-cn.pdf)
+
+</script></section><section  data-markdown><script type="text/template">
+## 如何做?
+
+D3.js
+
+![D3](../assets/images/build-your-own-technology-radar/d3.png)
+</script></section><section  data-markdown><script type="text/template">
+## D3 是什么?
+</script></section><section  data-markdown><script type="text/template">
+## 制作步骤
+
+1. 获取数据
+2. 绑定显示元素
+3. 计算位置
+4. 添加样式
+5. 动态读取
+6. 持续集成
+</script></section><section  data-markdown><script type="text/template">
+## 不同的雷达
+
+[ThoughtWorks读书雷达](http://insights.thoughtworkers.org/wp-content/uploads/2015/12/thoughtworks%E8%AF%BB%E4%B9%A6%E9%9B%B7%E8%BE%BE%EF%BC%882016%EF%BC%89.pdf)
+
+- 自己的雷达
+- 公司的雷达
+</script></section><section  data-markdown><script type="text/template">
+## Thanks & Question
+</script></section></div>
+		</div>
+
+		<script src="../revealjs/lib/js/head.min.js"></script>
+		<script src="../revealjs/js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: '../revealjs/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '../revealjs/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../revealjs/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../revealjs/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '../revealjs/plugin/zoom-js/zoom.js', async: true },
+					{ src: '../revealjs/plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

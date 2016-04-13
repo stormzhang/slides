@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>.&#x2F;domain-special-language.md</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="../revealjs/css/reveal.css">
+		<link rel="stylesheet" href="../revealjs/css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="../revealjs/lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../revealjs/css/print/pdf.css' : '../revealjs/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+			<div class="slides"><section  data-markdown><script type="text/template"># 领域特定语言
+
+author: 马陆骋&lt;malucheng@boohee.com&gt;
+</script></section><section  data-markdown><script type="text/template">
+## 目录
+
+-   什么是领域特定语言
+</script></section><section  data-markdown><script type="text/template">
+## 定义
+
+ruby 语言的一大特色就是其非常强大 dsl 能力。
+那什么是 dsl 呢？英文全称为 "Domain-Specific Language", Martin Fowler 对其的定义为：
+
+> Domain-specific language (noun): a computer programming language of limited expressiveness focused on a particular domain.
+</script></section><section  data-markdown><script type="text/template">
+## 为什么简洁
+
+大家可以想象一下，一门用来解决特定领域问题的语言，它相对于通用领域的语言，它所面对的问题是有限的，因此相对而言，领域特定语言的表达是更简洁的，
+因为使用领域特定语言就相当于默认已经给定了上下文。
+</script></section><section  data-markdown><script type="text/template">
+## 分类
+
+领域特定语言分为外部 DSL 和内部 DSL，我们要讲解的 Ruby 语言编写的 DSL 就属于内部 DSL。
+</script></section><section  data-markdown><script type="text/template">
+## 参考资料
+
+马丁福勒 <领域特定语言>
+</script></section><section  data-markdown><script type="text/template">
+## 例子
+
+html
+ruby dsl
+
+rake
+</script></section></div>
+		</div>
+
+		<script src="../revealjs/lib/js/head.min.js"></script>
+		<script src="../revealjs/js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: '../revealjs/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '../revealjs/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../revealjs/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../revealjs/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '../revealjs/plugin/zoom-js/zoom.js', async: true },
+					{ src: '../revealjs/plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

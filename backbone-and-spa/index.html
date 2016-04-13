@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>.&#x2F;backbone-and-spa.md</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="../revealjs/css/reveal.css">
+		<link rel="stylesheet" href="../revealjs/css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="../revealjs/lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../revealjs/css/print/pdf.css' : '../revealjs/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+			<div class="slides"><section  data-markdown><script type="text/template"># 基于 backbone 开发 spa 应用
+
+author: 马陆骋&lt;ma.lc@vcooline.com&gt;
+</script></section><section  data-markdown><script type="text/template">
+## 目录
+
+- 什么是 backbone
+- 什么是 spa
+- 开发spa和传统页面的区别
+- 如何开发一个spa
+- 开发语言
+- 构建工具
+- backbone的组成
+- tips
+- demo
+</script></section><section ><section data-markdown><script type="text/template">
+## 什么是 backbone
+
+> Backbone.js gives structure to web applications by providing models with
+key-value binding and custom events, collections with a rich API of
+enumerable functions, views with declarative event handling, and
+connects it all to your existing API over a RESTful JSON interface.
+</script></section><section data-markdown><script type="text/template">
+### backbone 的 MV\*
+
+In Smalltalk-80’s MVC, the View and Controller both observe the Model:
+
+> Rails does not notify views from the model or controllers - it just
+passes model data directly to the view.
+</script></section></section><section ><section data-markdown><script type="text/template">
+## 什么是 spa
+
+single page application
+
+</script></section><section data-markdown><script type="text/template">
+### spa 的优势
+
+-   (使用) 用户体验更好
+-   (开发) 前后端分离
+-   (性能) 请求量少
+
+</script></section><section data-markdown><script type="text/template">
+### spa 的不足
+
+-   对SEO支持不是太好
+-   首屏加载慢
+-   入门门槛高
+
+</script></section><section data-markdown><script type="text/template">
+### spa 的适用场景
+
+-   应用型而非展示型
+-   在大型应用中局部嵌入
+</script></section></section><section ><section data-markdown><script type="text/template">
+## 开发体验
+
+-   无需关心后台业务逻辑 (只需要和 api 进行交互)
+-   统一语言 **javascript**
+</script></section><section data-markdown><script type="text/template">
+### 如何开发一个 spa
+
+-   编程语言: javascript(coffeescript)
+-   构建工具: yeoman(grunt, bower)
+-   后端支持: 推荐但不限于 restful 接口
+-   本地数据: 数据持久化在浏览器端
+</script></section><section data-markdown><script type="text/template">
+### 编程语言 - javascript
+
+-   这里的 javascript 是一门真正的编程语言
+-   与操作 dom 时的脚本语言javascript不同
+-   是面向对象的 javascript (Object Orient)
+</script></section><section data-markdown><script type="text/template">
+### 编程语言 - coffeescript
+
+-   什么是 coffeescript
+-   语法简介
+
+![](../assets/images/backbone-and-spa/creator.png)
+
+</script></section></section><section ><section data-markdown><script type="text/template">
+## 什么是 coffeescript
+
+CoffeeScript is a little language that compiles into JavaScript
+</script></section><section data-markdown><script type="text/template">
+### 定义变量
+
+```coffee
+  number   = 42
+  opposite = true
+```
+
+-   无需 \`var\`, 默认就是局部变量, 预防不良代码
+
+</script></section><section data-markdown><script type="text/template">
+### 定义方法
+
+``` coffee
+square = (x) -> x * x
+cube   = (x) -> square(x) * x
+```
+
+-   减少冗长的 \`function\` 书写
+
+</script></section><section data-markdown><script type="text/template">
+### 条件分支
+
+```coffee
+grade = (student) ->
+  if student.excellentWork
+    "A+"
+  else if student.okayStuff
+    if student.triedHard then "B" else "B-"
+  else
+    "C"
+
+eldest = if 24 > 21 then "Liz" else "Ike"
+```
+
+-   没有各种圆括号和方括号
+
+</script></section><section data-markdown><script type="text/template">
+### 注释
+
+```coffee
+# this is a comment
+```
+
+-   ruby 风格注释
+
+</script></section><section data-markdown><script type="text/template">
+### loops
+
+```coffee
+for animal in animals
+  console.log animal
+```
+
+-   写过 js 原生循环的都觉得这个爽
+
+</script></section></section><section  data-markdown><script type="text/template">
+## 构建工具
+
+-   yeoman (脚手架)
+-   grunt (构建工具)
+-   bower (包管理器)
+</script></section><section ><section data-markdown><script type="text/template">
+## install
+
+-   use npm
+
+</script></section><section data-markdown><script type="text/template">
+### yo
+
+```bash
+npm install -g yo
+```
+
+![](../assets/images/backbone-and-spa/yeoman_cli.png)
+
+</script></section><section data-markdown><script type="text/template">
+### grunt
+
+```bash
+npm install -g grunt-cli
+```
+
+![](../assets/images/backbone-and-spa/grunt_cli.png)
+
+</script></section><section data-markdown><script type="text/template">
+### bower
+
+```bash
+npm install -g bower
+```
+
+![](../assets/images/backbone-and-spa/bower_cli.png)
+
+</script></section></section><section  data-markdown><script type="text/template">
+## yoeman
+
+THE WEB'S SCAFFOLDING TOOL FOR MODERN WEBAPPS
+
+![](../assets/images/backbone-and-spa/yeoman.png)
+
+</script></section><section  data-markdown><script type="text/template">
+## grunt
+
+The JavaScript Task Runner
+
+build tool like rake for ruby and ant(maven) for java
+
+![](../assets/images/backbone-and-spa/grunt.png)
+
+</script></section><section  data-markdown><script type="text/template">
+## bower
+
+A package manager for the web
+
+![](../assets/images/backbone-and-spa/bower.png)
+</script></section><section ><section data-markdown><script type="text/template">
+## backbone的组成
+
+![](../assets/images/backbone-and-spa/backbone.png)
+
+-   model
+-   collection
+-   view
+-   routes
+-   **controller**
+
+</script></section><section data-markdown><script type="text/template">
+### 架构
+
+![](../assets/images/backbone-and-spa/backbone_mvc.png)
+
+</script></section><section data-markdown><script type="text/template">
+### model
+
+数据结构的载体, 以及与服务端 api 的交互
+
+</script></section><section data-markdown><script type="text/template">
+### collection
+
+模型的集合, 方便开发者对一个以上的模型进行操作
+
+</script></section><section data-markdown><script type="text/template">
+### view
+
+view 是 backbone 的核心组件, 负责事件的绑定和 template 的渲染
+
+-   可以嵌套
+-   可以继承
+-   绑定数据
+-   手动管理内存
+-   传统 mvc 中 c 的位置
+
+</script></section><section data-markdown><script type="text/template">
+### controller
+
+backbone 没有专门的 controller, controller 的职责由 view 承担
+
+</script></section><section data-markdown><script type="text/template">
+### route
+
+单页应用中路由是可选的,它甚至不是 mvc 的一部分. 路由主要用途就是根据 url
+决定页面的状态
+</script></section></section><section ><section data-markdown><script type="text/template">
+## tips
+</script></section><section data-markdown><script type="text/template">
+### object 的引用
+
+在 JavaScript 中, object 是通过引用传递的,
+所以如果一个对象的某个默认值是一个 object. 那么需要把 default
+作为一个函数来定义
+
+```coffee
+  defaults: ->
+    page_id: ""
+    position: 0
+    settings: {}
+    status: "unable"
+    template_type: ""
+```
+
+</script></section><section data-markdown><script type="text/template">
+### 手动管理 view
+
+view 需要被手动管理不然会出现多重事件绑定
+
+    if window.current_settings_view
+      window.current_settings_view.remove() # make sure view events removed
+
+</script></section><section data-markdown><script type="text/template">
+### 忘掉 jQuery
+
+不要用 jQuery 的思想去创建 dom 元素, 要把这些元素绑定到模型,
+这样模型更新时 dom 会自定被更新
+
+</script></section></section><section  data-markdown><script type="text/template">
+## demo
+
+![](../assets/images/backbone-and-spa/wshop_front.png)
+</script></section><section  data-markdown><script type="text/template">
+## Thanks
+
+Question?
+</script></section></div>
+		</div>
+
+		<script src="../revealjs/lib/js/head.min.js"></script>
+		<script src="../revealjs/js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: '../revealjs/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '../revealjs/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../revealjs/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../revealjs/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '../revealjs/plugin/zoom-js/zoom.js', async: true },
+					{ src: '../revealjs/plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
